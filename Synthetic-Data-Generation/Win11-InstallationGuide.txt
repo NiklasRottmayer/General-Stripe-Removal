@@ -1,0 +1,54 @@
+Setting up a Python environment to support the use of 'biobeam' (calculation) and 'spimagine' (visualization) is tedious.
+
+Installation via anaconda (06.01.2024)
+Test System: 	Win 11 22H2
+		AMD 5800H
+		RTX 3050 Laptop
+
+1. Open an instance of anaconda prompt. Make sure conda is up to date by running 
+'conda update conda'
+
+2. Add the channels 'conda-forge' and 'talley'. Change the channel priority to 'strict'. You can do this by opening the file '.condarc' under 'C:\Users\User' and pasting the following lines without the brackets {}.
+{
+channels:
+  - defaults
+  - conda-forge
+  - talley
+
+channel_priority: strict
+}
+
+3. Create a Python 3.6 environment using
+'conda create -n "BioBeam" python=3.6'
+
+4. Activate the new environment:
+'conda activate BioBeam'
+
+5. From [https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyopencl](Gohlke) download a suitable pyopencl version, e.g.,
+'pyopencl‑2020.3.1+cl12‑cp36‑cp36m‑win_amd64.whl' 
+for support opencl 1.2, python 3.6 and a 64bit version of Windows.
+
+6. Install pyopencl by running 
+'pip install C:\Users\User\Downloads\pyopencl‑2020.3.1+cl12‑cp36‑cp36m‑win_amd64.whl'
+
+7. Install biobeam using
+'pip install biobeam' 
+Adding '--use-feature=2020-resolver' may be necessary for old versions of conda. 
+
+8. Install spimagine using
+'pip install spimagine'
+
+9. (Optional) Install other packages
+'pip install jupyter'
+'pip install matplotlib'
+
+10. Install tifffile by running
+'pip install tifffile'
+'pip install scikit-tensor-py3'
+'pip install pyopengl-accelerate --upgrade' (to update to newer version)
+'pip install reikna==0.7.5' (version >= 0.8 doesn't work)
+
+Comment: There is currently an error message appearing when installing jupyter with pywinpty. Version 1.1.6-cp36 will work!
+
+
+
