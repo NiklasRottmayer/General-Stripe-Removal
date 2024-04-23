@@ -40,8 +40,6 @@
 % OUT :
 % - u : u0+sum_{i=1}^m conv(Lambda_i,Gabor(i))
 % - EstP and EstD : solutions of primal and dual problem.
-%
-% Any comments: please contact Pierre Weiss, pierre.armand.weiss@gmail.com
 
 function u=fast_VSNR(u0,eps,p,Filter,alpha,maxit,prec,C,GPU)
     % Retrieves informations about the problem type. m is the filters number.
