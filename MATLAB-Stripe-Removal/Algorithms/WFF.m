@@ -17,7 +17,8 @@
 % Output:
 % nima      -   Result of stripe removal
 %-------------------------------------------------------------------------
-
+% Comment: The code of WFF is taken directly from the paper [Münch]. Only
+% comments and function name were adjusted.
 
 function [nima]=WFF(ima,decNum,wname,sigma)
 
