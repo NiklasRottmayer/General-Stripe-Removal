@@ -81,8 +81,8 @@ end
 
 % Parameters
 mu = [10,0.1];  % Weighting parameters [mu1,mu2] (default: [10,0.1])
-steps = 100;  % Number of iterations (default: 25000)
-resz = 0.1;     % Resolution in z-direction (if applicable) (default: 1)
+steps = 25000;  % Number of iterations (default: 25000)
+resz = 1;       % Resolution in z-direction (if applicable) (default: 1)
 proj = 1;       % 1 for GSR method in the paper, 0 for [Liu et. al 2018]
 normalize = 0;  % 1 to normalize input, 0 for direct processing (default: 0)
 GPU = 1;        % 1 for use of GPU (if available), 0 for use of CPU
@@ -144,7 +144,7 @@ Filters(:,:,3) = GaborFilter(size(img),0.1,0,0,2,0.1); % Large
 % Parameters
 alpha = [5,5,5];    % weighting parameters (default: [5,5,5])           
 p = 1;              % value or array specifying the p-norm used for penalization (default: 1)
-steps = 100;       % Number of iterations (default: 25000)
+steps = 25000;      % Number of iterations (default: 25000)
 GPU = 0;            % 1 for use of GPU (if available), 0 for use of CPU
 
 % Further parameters - for details see [Fehrenbach et al. 2012]
