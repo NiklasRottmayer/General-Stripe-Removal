@@ -36,6 +36,12 @@ For removing stripe artifacts we offer the code to four different methods includ
 ## Synthetic Data Generation
 For the generation of synthetic light-sheet (fluorescence) microscopy data we rely on the Biobeam package [6] which allows us to simulate the propagation of light through 3D space given a refractive index distrubtion of the geometry and other parameters such as wavelength of the light, numerical apartures and voxel size. As geometry we combine several techniques including the fixed placement of solids and the random placement of non-overlapping spheres. For the choice of refractive indices we refer to [7]. 
 
+Corrupted Image | Ground Truth
+:-------------------------:|:-------------------------:
+![Synthetic-Embryo-flat_prep96-96](https://github.com/user-attachments/assets/8e4207ae-e3c3-46c7-9265-d462b496943d) | ![Synthetic-Embryo-flat_Ideal_prep96-96](https://github.com/user-attachments/assets/9c2bbcc4-48aa-44fd-8813-66fa2c4eb20c)
+
+
+
 [6] M. Weigert, K. Subramanian, S. T. Bundschuh, et al., “Biobeam—multiplexed wave-optical
 simulations of light-sheet microscopy,” PLoS Comput. Biol. 14, 1–11 (2018).
 
