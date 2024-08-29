@@ -10,11 +10,11 @@ For removing stripe artifacts we offer the code to four different methods includ
   
   which is optimized using the primal-dual gradient hybrid method with extrapolation of the dual variable (PDHGMp) [2]. It supports the choice of stripe direction in 3D and a variable resolution in stack (z-)direction.  
 
-3. (MDSR*) **Multi-directional Stripe Remover**: A powerful Fourier filtering approach based on the non-subsampled contourlet transform, a multi-scale and directional decomposition. Compared to the original proposition [3] we restrict filtering to subimages of a limited range of directions. Only slice-wise processing is currently supported.
+2. (MDSR*) **Multi-directional Stripe Remover**: A powerful Fourier filtering approach based on the non-subsampled contourlet transform, a multi-scale and directional decomposition. Compared to the original proposition [3] we restrict filtering to subimages of a limited range of directions. Only slice-wise processing is currently supported.
 
-4. (VSNR) **Variational Stationary Noise Remover**: A versatile variational method capable of removing repeating artifacts through the choice of patterns. Only slice-wise processing is currently supported [4].
+3. (VSNR) **Variational Stationary Noise Remover**: A versatile variational method capable of removing repeating artifacts through the choice of patterns. Only slice-wise processing is currently supported [4].
 
-
+4. (WFF) **Wavelet-Fourier Filtering**: one of the earliest successfull implementations of Fourier filtering for removing stripes based on the wavelet decomposition. It is commonly referenced and compared with in literature. [5]
 
 [1] X. Liu, X. Lu, H. Shen, et al., “Oblique stripe removal in remote sensing images via oriented variation,” CoRR abs/1809.02043 (2018).
 
@@ -24,11 +24,13 @@ For removing stripe artifacts we offer the code to four different methods includ
 
 [4] J. Fehrenbach, P. Weiss, and C. Lorenzo, “Variational algorithms to remove stationary noise: Applications to microscopy imaging,” IEEE Trans. on Image Process. 21, 4420–4430 (2012).
 
-## Synthetic Data Generation
-For the generation of synthetic light-sheet (fluorescence) microscopy data we rely on the Biobeam package [5] which allows us to simulate the propagation of light through 3D space given a refractive index distrubtion of the geometry and other parameters such as wavelength of the light, numerical apartures and voxel size. As geometry we combine several techniques including the fixed placement of solids and the random placement of non-overlapping spheres. For the choice of refractive indices we refer to [6]. 
+[5] B. Münch, P. Trtik, F. Marone, and M. Stampanoni, “Stripe and ring artifact removal with combined wavelet — Fourier filtering,” Opt. Express 17, 8567–8591 (2009).
 
-[5] M. Weigert, K. Subramanian, S. T. Bundschuh, et al., “Biobeam—multiplexed wave-optical
+## Synthetic Data Generation
+For the generation of synthetic light-sheet (fluorescence) microscopy data we rely on the Biobeam package [6] which allows us to simulate the propagation of light through 3D space given a refractive index distrubtion of the geometry and other parameters such as wavelength of the light, numerical apartures and voxel size. As geometry we combine several techniques including the fixed placement of solids and the random placement of non-overlapping spheres. For the choice of refractive indices we refer to [7]. 
+
+[6] M. Weigert, K. Subramanian, S. T. Bundschuh, et al., “Biobeam—multiplexed wave-optical
 simulations of light-sheet microscopy,” PLoS Comput. Biol. 14, 1–11 (2018).
 
-[6] P. Y. Liu, L. K. Chin, W. Ser, et al., “Cell refractive index for cell biology and disease diagnosis:
+[7] P. Y. Liu, L. K. Chin, W. Ser, et al., “Cell refractive index for cell biology and disease diagnosis:
 past, present and future,” Lab Chip 16, 634–644 (2016).
