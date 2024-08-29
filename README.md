@@ -1,6 +1,13 @@
 # Summary
 This repository contains Matlab code for removing stripe artifacts from 2D or 3D images and python code for generating synthetic light-sheet microscopy images. 
 
+Corrupted Image | Destriping Result
+:-------------------------:|:-------------------------:
+![grafik](https://github.com/user-attachments/assets/19550398-cffe-455d-928c-1d4d94946fd9)| ![grafik](https://github.com/user-attachments/assets/087da623-b4a6-4c6f-a29f-c043255e7fa2)
+![15SnBronze_unsheared_crop_Slice23](https://github.com/user-attachments/assets/2291079b-2e22-4866-ab3f-6df695ae5ed2) | ![GSR3D_mu3-0p05_steps25000_proj1_resz0p33_direction1-0-0_normalize0_15SnBronze_Slice25_0p25-1p1](https://github.com/user-attachments/assets/ea3cdf22-d2f8-484b-82ae-ce7e6449afb0)
+![TestImage_t3_l256](https://github.com/user-attachments/assets/6a55ad7c-9402-42be-bb6d-9c9b2329810c) | ![GSR2D_mu7-0p1_steps25000_proj1_resz0_direction1-0_normalize0_TestImage-t3-l256_prep](https://github.com/user-attachments/assets/7c77239d-da7f-4293-9a03-de9d9d3515be)
+
+
 ## Stripe Removal
 For removing stripe artifacts we offer the code to four different methods including our own solution which generalizes well to all tested settings. It extends on work by Liu et al. [1]. For the selection of parameters, see the provided scripts and algorithms. 
 
