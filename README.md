@@ -23,3 +23,12 @@ For removing stripe artifacts we offer the code to four different methods includ
 [3] X. Liang, Y. Zang, D. Dong, et al., “Stripe artifact elimination based on nonsubsampled contourlet transform for light sheet fluorescence microscopy,” J. Biomed. Opt. 21, 1–9 (2016).
 
 [4] J. Fehrenbach, P. Weiss, and C. Lorenzo, “Variational algorithms to remove stationary noise: Applications to microscopy imaging,” IEEE Trans. on Image Process. 21, 4420–4430 (2012).
+
+## Synthetic Data Generation
+For the generation of synthetic light-sheet (fluorescence) microscopy data we rely on the Biobeam package [5] which allows us to simulate the propagation of light through 3D space given a refractive index distrubtion of the geometry and other parameters such as wavelength of the light, numerical apartures and voxel size. As geometry we combine several techniques including the fixed placement of solids and the random placement of non-overlapping spheres. For the choice of refractive indices we refer to [6]. 
+
+[5] M. Weigert, K. Subramanian, S. T. Bundschuh, et al., “Biobeam—multiplexed wave-optical
+simulations of light-sheet microscopy,” PLoS Comput. Biol. 14, 1–11 (2018).
+
+[6] P. Y. Liu, L. K. Chin, W. Ser, et al., “Cell refractive index for cell biology and disease diagnosis:
+past, present and future,” Lab Chip 16, 634–644 (2016).
