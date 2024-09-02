@@ -95,7 +95,7 @@ if ~isfolder(fullfile(result_folder,'GSR')), mkdir(fullfile(result_folder,'GSR')
 assert(norm(direction,1) > 0), dimension = 3; direction = direction./norm(direction,1);
 if ismatrix(img) || resz == 0, resz = 0; dimension = 2; direction = direction(1:2)./norm(direction(1:2),1); end
 % Processing
-u = GeneralStripeRemover(img,steps,mu,proj,resz,normalize,GPU,direction,verbose);
+u = GeneralStripeRemover(img,steps,mu,proj,resz,normalize,direction,verbose);
 % Storage
 save_name = fullfile(result_folder,'GSR',['GSR',num2str(dimension),'D_mu',strrep(num2str(mu(1)),'.','p'),'-',...
                     strrep(num2str(mu(2)),'.','p'),'_steps',strrep(num2str(steps),'.','p'),...
