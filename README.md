@@ -1,3 +1,7 @@
+# Paper
+https://www.biorxiv.org/content/10.1101/2024.02.02.578531v2
+
+
 # Summary
 This repository contains Matlab code for removing stripe artifacts from 2D or 3D images and python code for generating synthetic light-sheet microscopy images. 
 
@@ -13,7 +17,7 @@ For removing stripe artifacts we offer the code to four different methods includ
 
 1. (ours) **General Stripe Remover**: A variational method that penalizes undesired image and stripe features to remove artifacts. The objective function is
    
-  $$\underset{u+s=u_0}{\mathrm{argmin}}\, \mu_1 \lVert\nabla_{x,y,z} u\rVert_{2,1}+ \lVert\nabla_y s\rVert_1 + \mu_2 \lVert s \rVert_1 + \iota_{[0,1]^N}(u) $$
+  $$\underset{u+s=u_0}{\mathrm{argmin}}\quad \mu_1 \lVert\nabla_{x,y,z} u\rVert_{2,1}+ \lVert\nabla_y s\rVert_1 + \mu_2 \lVert s \rVert_1 + \iota_{[0,1]^N}(u) $$
   
   which is optimized using the primal-dual gradient hybrid method with extrapolation of the dual variable (PDHGMp) [2]. It supports the choice of stripe direction in 3D and a variable resolution in stack (z-)direction.  
 
