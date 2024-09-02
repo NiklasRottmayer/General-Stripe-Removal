@@ -1,5 +1,5 @@
-# Paper
-https://www.biorxiv.org/content/10.1101/2024.02.02.578531v2
+# Paper (Preprint)
+N. Rottmayer, C. Redenbach, F. O. Fahrbach,  "Effective stripe artifact removal by a variational method: application to light-sheet microscopy, FIB-SEM and remote sensing images," https://www.biorxiv.org/content/10.1101/2024.02.02.578531v2
 
 
 # Summary
