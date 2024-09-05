@@ -158,7 +158,7 @@ if ~isfolder(fullfile(result_folder,'VSNR')), mkdir(fullfile(result_folder,'VSNR
 % Processing
 u = zeros(size(img),'single');
 for i = 1:n
-    u(:,:,i) = fast_VSNR(img(:,:,i),eps,p,Filters,alpha,steps,prec,C);
+    u(:,:,i) = VSNR(img(:,:,i),eps,p,Filters,alpha,steps,prec,C);
 end
 %Storage
 save_name = fullfile(result_folder,'VSNR','VSNR_alpha');
