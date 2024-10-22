@@ -22,7 +22,7 @@
 % mu            -   weighting parameters (array[2])
 % proj          -   project onto [0,1] (true/false)
 % resz          -   ratio of resolutions z-axis to x and y (in [0,1]) 
-%                   D_z = resz*(F(:,:,2:end) - F)
+%                   D_z = resz*(F(:,:,i+1) - F(:,:,i))
 % normalize     -   normalize the input image to [0,1] (true/false) 
 % direction     -   stripe direction (array[2]/array[3]) 
 % verbose       -   print process information (true/false)
@@ -46,7 +46,7 @@ function u = GeneralStripeRemover(F,iterations,mu,proj,resz,normalize,...
     GPU = canUseGPU();
     iterations = ceil(iterations);
     
-    %% Sanity checks
+    %% General Sanity checks
 
     assert(length(size(F)) >= 2,'The input image has invalid dimensions.') % does not catch arrays / numbers!
     assert(iterations >= 0,'The number of iterations must be non-negative.') 
@@ -55,10 +55,16 @@ function u = GeneralStripeRemover(F,iterations,mu,proj,resz,normalize,...
     assert(proj == 0 || proj == 1,'proj must be boolean (true/false or 1/0).')
     assert(resz >= 0 && resz <= 1, 'resz must be in [0,1].')
     assert(~all(direction == 0),'direction cannot be all zeros.')
-    if ismatrix(F), assert(resz == 0,'resz must be 0 for 2D images.')
-                    assert(direction(1)~= 0 || direction(2)~= 0,'Processing in 2D requires a valid direction')
+
+    %% Specific Sanity Checks
+
+    if ismatrix(F)
+        assert(resz == 0,'resz must be 0 for 2D images.')
+        assert(direction(1)~= 0 || direction(2)~= 0,'Processing in 2D requires a valid direction')
     end
-    if direction(3) ~= 0, assert(resz == 1,'resz=1 required for direction in z-direction.'), end
+    if resz > 0 && resz < 1
+        assert(direction(2) == 0,'direction in z-direction with resz in (0,1) is not supported.')
+    end
 
     %% Preparation
 
@@ -131,6 +137,7 @@ function u = GeneralStripeRemover(F,iterations,mu,proj,resz,normalize,...
         s1x = b1xbar(:,[1 1:end-1],:) - b1xbar;
         s1x(:,1,:) = -b1xbar(:,1,:);
         s1x(:,end,:) = b1xbar(:,end-1,:);
+
         % Image: s1y = D_y^T b1ybar
         s1y = b1ybar([1 1:end-1],:,:) - b1ybar;
         s1y(1,:,:) = -b1ybar(1,:,:);
@@ -198,7 +205,7 @@ function u = GeneralStripeRemover(F,iterations,mu,proj,resz,normalize,...
                 s2(1,end-1:end,1) = 0;
                 s2(1,1,end) = 0;
         end
-        
+
         if resz == 0, u = u - tau * sigma * (s1x + s1y);
         else, u = u - tau * sigma * (s1x + s1y + s1z); end
         s = s - tau * sigma * (s2 + b3bar);
@@ -224,7 +231,6 @@ function u = GeneralStripeRemover(F,iterations,mu,proj,resz,normalize,...
         else
             temp = sqrt(s1x.^2 + s1y.^2);
         end
-        
         t = sign(temp) .* max(abs(temp)-mu(1)/sigma,0);
         s1x = s1x .* (t ./ max(temp,1e-9));
         s1y = s1y .* (t ./ max(temp,1e-9));
@@ -295,6 +301,7 @@ function u = GeneralStripeRemover(F,iterations,mu,proj,resz,normalize,...
     end
     if verbose, fprintf('\rStripe removal in %d steps completed.\n',k-1), end
     if GPU, u = gather(u); end
+
 end
 
 
