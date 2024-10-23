@@ -63,7 +63,7 @@ function u = GeneralStripeRemover(F,iterations,mu,proj,resz,normalize,...
         assert(direction(1)~= 0 || direction(2)~= 0,'Processing in 2D requires a valid direction')
     end
     if resz > 0 && resz < 1
-        assert(direction(2) == 0,'direction in z-direction with resz in (0,1) is not supported.')
+        assert(direction(3) == 0,'direction in z-direction with resz in (0,1) is not supported.')
     end
 
     %% Preparation

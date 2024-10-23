@@ -8,7 +8,7 @@ from GeneralStripeRemover import GeneralStripeRemover
 
 if __name__ == '__main__':
     # Open 2D image
-    # img = Image.open("TestImage-t10-l256_prep.png")
+    # img = Image.open("CircularTestingPattern_Reference.png")
     # img = torch.from_numpy(np.array(img)).float()
     # Open 3D image
     img = tiff.imread("SphericalTestingPattern_256_8.tiff")
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     img = (img - img.min())/(img.max() - img.min())
 
     # Process image
-    result = GeneralStripeRemover(img,iterations=5,proj=1,mu=[5,0.1],verbose=1)
+    result = GeneralStripeRemover(img,iterations=5000,proj=True,mu=[10,0.1],resz=1,direction=[1.,0.,0.],verbose=True)
 
     # Visualize result
     if img.dim() == 2:
